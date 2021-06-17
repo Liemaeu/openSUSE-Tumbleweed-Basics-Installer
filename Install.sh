@@ -19,7 +19,7 @@ sudo sed -i "/common-auth/a auth	optional	pam_gnome_keyring.so" /etc/pam.d/sddm
 sudo sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start" /etc/pam.d/sddm
 
 #installs updates
-udo zypper --non-interactive refresh
+sudo zypper --non-interactive refresh
 sudo zypper --non-interactive dist-upgrade --allow-vendor-change
 
 #sets YaST Software as default application for .rpm
