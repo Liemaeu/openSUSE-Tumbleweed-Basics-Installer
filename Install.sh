@@ -22,4 +22,7 @@ sudo sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start"
 sudo zypper --non-interactive dup
 
 #sets YaST Software as default application for .rpm
-sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" ~/.config/mimeapps.list
+if ! [ -f "$HOME/.config/mimeapps.list" ]; then
+  echo "[Default Applications]" > $HOME/.config/mimeapps.list
+fi
+sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
