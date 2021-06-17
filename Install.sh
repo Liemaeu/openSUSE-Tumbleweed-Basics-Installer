@@ -18,5 +18,8 @@ sudo zypper --non-interactive install -y gnome-keyring seahorse
 sudo sed -i "/common-auth/a auth	optional	pam_gnome_keyring.so" /etc/pam.d/sddm
 sudo sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start" /etc/pam.d/sddm
 
+#installs updates
+sudo zypper --non-interactive dup
+
 #sets YaST Software as default application for .rpm
 sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" ~/.config/mimeapps.list
