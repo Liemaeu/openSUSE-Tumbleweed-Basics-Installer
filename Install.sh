@@ -25,6 +25,8 @@ sudo zypper --non-interactive addrepo --refresh https://download.opensuse.org/re
 sudo zypper --gpg-auto-import-keys refresh
 sudo zypper --non-interactive dist-upgrade --from snappy
 sudo zypper --non-interactive install snapd
+sudo systemctl enable --now snapd
+sudo systemctl enable --now snapd.apparmor
 
 #installs flatpak
 sudo zypper --non-interactive install -y flatpak
@@ -32,7 +34,6 @@ sudo zypper --non-interactive install -y flatpak
 #installs updates
 sudo zypper --non-interactive refresh
 sudo zypper --non-interactive dist-upgrade --allow-vendor-change
-sudo systemctl enable --now snapd.apparmor
 
 #sets YaST Software as default application for .rpm
 if ! [ -f "$HOME/.config/mimeapps.list" ]; then
