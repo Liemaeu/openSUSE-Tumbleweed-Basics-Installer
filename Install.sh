@@ -20,9 +20,19 @@ if ! [ grep -Fxq "pam_gnome_keyring.so" "/etc/pam.d/sddm" ]; then
   sudo sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start" /etc/pam.d/sddm
 fi
 
+#installs snap
+sudo zypper --non-interactive addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed snappy
+sudo zypper --gpg-auto-import-keys refresh
+sudo zypper --non-interactive dist-upgrade --from snappy
+sudo zypper --non-interactive install snapd
+
+#installs flatpak
+sudo zypper --non-interactive install -y flatpak
+
 #installs updates
 sudo zypper --non-interactive refresh
 sudo zypper --non-interactive dist-upgrade --allow-vendor-change
+sudo systemctl enable --now snapd.apparmor
 
 #sets YaST Software as default application for .rpm
 if ! [ -f "$HOME/.config/mimeapps.list" ]; then
@@ -31,3 +41,7 @@ fi
 if ! [ grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop" "$HOME/.config/mimeapps.list" ]; then
   sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
 fi
+
+#sets up flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak update
