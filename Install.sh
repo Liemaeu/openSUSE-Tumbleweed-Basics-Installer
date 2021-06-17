@@ -15,8 +15,10 @@ sudo zypper --non-interactive install -y pam_kwallet
 
 #installs and auto unlocks Gnome-Keyring
 sudo zypper --non-interactive install -y gnome-keyring seahorse
-sudo sed -i "/common-auth/a auth	optional	pam_gnome_keyring.so" /etc/pam.d/sddm
-sudo sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start" /etc/pam.d/sddm
+if ! [ grep -Fxq "pam_gnome_keyring.so" "/etc/pam.d/sddm" ]; then
+  sudo sed -i "/common-auth/a auth	optional	pam_gnome_keyring.so" /etc/pam.d/sddm
+  sudo sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start" /etc/pam.d/sddm
+fi
 
 #installs updates
 sudo zypper --non-interactive refresh
@@ -26,4 +28,6 @@ sudo zypper --non-interactive dist-upgrade --allow-vendor-change
 if ! [ -f "$HOME/.config/mimeapps.list" ]; then
   echo "[Default Applications]" > $HOME/.config/mimeapps.list
 fi
-sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
+if ! [ grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop" "$HOME/.config/mimeapps.list" ]; then
+  sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
+fi
