@@ -15,8 +15,8 @@ sudo zypper --non-interactive install -y pam_kwallet
 
 #installs and auto unlocks Gnome-Keyring
 sudo zypper --non-interactive install -y gnome-keyring seahorse
-sed -i "/common-auth/a auth	optional	pam_gnome_keyring.so" /etc/pam.d/sddm
-sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start" /etc/pam.d/sddm
+sudo sed -i "/common-auth/a auth	optional	pam_gnome_keyring.so" /etc/pam.d/sddm
+sudo sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start" /etc/pam.d/sddm
 
 #sets YaST Software as default application for .rpm
 sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" ~/.config/mimeapps.list
