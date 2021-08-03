@@ -35,9 +35,11 @@ This script installs and sets up everything a normal user needs. It is designed 
 
 Download it and open a terminal (e.g. Konsole) in the folder with the Install.sh script:
 
-`chmod +x Install.sh`
+```
+chmod +x Install.sh
 
-`./Install.sh`
+./Install.sh
+```
 
 # ToDo after running this script
 
