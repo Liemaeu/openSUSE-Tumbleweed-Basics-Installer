@@ -1,6 +1,6 @@
 # openSUSE-Tumbleweed-Basics-Installer
 
-*Work in progress. A gui will be added in the future*
+*Work in progress. A gui will be added in the future.*
 
 This script installs and sets up everything a normal user needs. It is designed for **openSUSE Tumbleweed** with the **KDE Plasma** desktop environement on a regular **64 bit** pc (x86_64 architecture).
 
@@ -28,15 +28,18 @@ This script installs and sets up everything a normal user needs. It is designed 
 
 ## Fixes
 
-- multible package installers (Discover removed)
+- multiple package installers (Discover removed)
 - YaST Software as default application for .rpm
 
 # Run this script
 
 Download it and open a terminal (e.g. Konsole) in the folder with the Install.sh script:
+
+`chmod +x Install.sh`
+
 `./Install.sh`
 
-# ToDo after running ths script
+# ToDo after running this script
 
--Reboot your pc
--It's recommended to remove the discover icon from the control panel, since it has no use anymore
+- Reboot your pc
+- It's recommended to remove the Discover icon from the control panel, since it has no use anymore
