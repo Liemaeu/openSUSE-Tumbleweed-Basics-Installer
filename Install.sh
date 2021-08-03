@@ -22,7 +22,7 @@ sudo sed -i "s/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/" /etc/default/grub
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 #decreases swappiness
-if ! [ grep -Fxq "vm.swappiness" "/etc/sysctl.conf" ]; then
+if ! grep -Fxq "vm.swappiness" "/etc/sysctl.conf" ; then
   sudo sed -i "vm.swappiness=10" /etc/sysctl.conf
 fi
 
@@ -31,7 +31,7 @@ sudo zypper --non-interactive install -y pam_kwallet
 
 #installs and auto unlocks Gnome-Keyring
 sudo zypper --non-interactive install -y gnome-keyring seahorse
-if ! [ grep -Fxq "pam_gnome_keyring.so" "/etc/pam.d/sddm" ]; then
+if ! grep -Fxq "pam_gnome_keyring.so" "/etc/pam.d/sddm" ; then
   sudo sed -i "/common-auth/a auth	optional	pam_gnome_keyring.so" /etc/pam.d/sddm
   sudo sed -i "/common-session/a session	optional	pam_gnome_keyring.so auto_start" /etc/pam.d/sddm
 fi
@@ -52,10 +52,10 @@ sudo zypper --non-interactive refresh
 sudo zypper --non-interactive dist-upgrade --allow-vendor-change
 
 #sets YaST Software as default application for .rpm
-if ! [ -f "$HOME/.config/mimeapps.list" ]; then
+if ! -f "$HOME/.config/mimeapps.list" ; then
   echo "[Default Applications]" > $HOME/.config/mimeapps.list
 fi
-if ! [ grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop" "$HOME/.config/mimeapps.list" ]; then
+if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop" "$HOME/.config/mimeapps.list" ; then
   sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
 fi
 
