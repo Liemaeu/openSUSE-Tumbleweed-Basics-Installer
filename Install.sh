@@ -1,14 +1,30 @@
 #!/usr/bin/env bash
 
-#Adds packman repo and installs codecs
+#adds packman repo
 sudo zypper --non-interactive --quiet addrepo --refresh -p 90 https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ 'packman'
 sudo zypper --gpg-auto-import-keys refresh
 sudo zypper --non-interactive dist-upgrade --allow-vendor-change --from packman
+
+#installs codecs from packman
 sudo zypper --non-interactive install -y --from packman ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full vlc-codecs
+
+#installs Microsoft fonts
+sudo zypper --non-interactive install -y fetchmsttfonts
+
+#installs build essentials
+sudo zypper --non-interactive install -y patterns-devel-base-devel_basis
+
+#removes discover
+sudo zypper --non-interactive remove -y discover
 
 #disables boot timeout
 sudo sed -i "s/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/" /etc/default/grub
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+#decreases swappiness
+if ! [ grep -Fxq "vm.swappiness" "/etc/sysctl.conf" ]; then
+  sed -i "vm.swappiness=10" etc/sysctl.conf
+fi
 
 #auto unlocks KWallet
 sudo zypper --non-interactive install -y pam_kwallet
