@@ -1,4 +1,42 @@
 # openSUSE-Tumbleweed-Basics-Installer
-Installs the basics a normal user needs. Made for Tumbleweed KDE Plasma.
 
-*Work in progress*
+*Work in progress. A gui will be added in the future*
+
+This script installs and sets up everything a normal user needs. It is designed for **openSUSE Tumbleweed** with the **KDE Plasma** desktop environement on a regular **64 bit** pc (x86_64 architecture).
+
+# Features
+
+## Adds
+
+- Packman community repository
+
+## Installs
+
+- media codecs
+- Microsoft fonts
+- Gnome Keyring (with Seahorse gui)
+- Flatpak
+- Snap
+- build essentials
+
+## Sets
+
+- Kwallet autounlock enabled
+- Gnome Keyring autounlock enabled
+- boot delay disabled
+- swappiness to 10
+
+## Fixes
+
+- multible package installers (Discover removed)
+- YaST Software as default application for .rpm
+
+# Run this script
+
+Download it and open a terminal (e.g. Konsole) in the folder with the Install.sh script:
+`./Install.sh`
+
+# ToDo after running ths script
+
+-Reboot your pc
+-It's recommended to remove the discover icon from the control panel, since it has no use anymore
