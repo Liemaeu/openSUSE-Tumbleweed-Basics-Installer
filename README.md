@@ -37,7 +37,6 @@ Download it and open a terminal (e.g. Konsole) in the folder with the Install.sh
 
 ```
 chmod +x Install.sh
-
 ./Install.sh
 ```
 
