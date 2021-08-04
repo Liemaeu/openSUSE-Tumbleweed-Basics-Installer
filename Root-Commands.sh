@@ -72,6 +72,7 @@ qdbus-qt5 $dbusRef Set "" value 11
 qdbus-qt5 $dbusRef setLabelText "Installing Flatpak..."
 #installs flatpak
 zypper --non-interactive install -y flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 qdbus-qt5 $dbusRef Set "" value 12
 qdbus-qt5 $dbusRef setLabelText "Updating System..."
