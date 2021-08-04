@@ -101,10 +101,10 @@ qdbus-qt5 $dbusRefTwo showCancelButton false
 qdbus-qt5 $dbusRefTwo Set "" value 1
 qdbus-qt5 $dbusRefTwo setLabelText "Making YaST Software default for .rpm..."
 #sets YaST Software as default application for .rpm
-if ! -f "$HOME/.config/mimeapps.list" ; then
+if ! [ -f "$HOME/.config/mimeapps.list" ]; then
   echo "[Default Applications]" > $HOME/.config/mimeapps.list
 fi
-if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop" "$HOME/.config/mimeapps.list" ; then
+if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop;" "$HOME/.config/mimeapps.list" ; then
   sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
 fi
 
