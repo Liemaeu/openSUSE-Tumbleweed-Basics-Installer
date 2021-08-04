@@ -26,7 +26,6 @@ fi
 qdbus-qt5 $dbusRefTwo Set "" value 2
 qdbus-qt5 $dbusRefTwo setLabelText "Setting up Flatpak..."
 #sets up flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
 
 #closes KDialog progress window
