@@ -40,6 +40,13 @@ chmod +x Install.sh
 ./Install.sh
 ```
 
+Alternatively you can run the gui (KDialog) version:
+
+```
+chmod +x Install-GUI.sh
+./Install-GUI.sh
+```
+
 # ToDo after running this script
 
 - Reboot your pc
