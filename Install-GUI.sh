@@ -7,7 +7,7 @@ if [ $? -eq 1 ]; then
 fi
 
 #runs commands as root
-kdesu ./GUI-Commands.sh
+kdesu ./Root-Commands.sh
 
 #opens KDialog progress window
 dbusRefTwo=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 2`
