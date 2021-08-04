@@ -10,7 +10,7 @@ fi
 pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY sudo -s
 
 #opens KDialog progress window
-dbusRef=`kdialog --title "Installing, please wait" --progressbar "Starting..." 12
+dbusRef=`kdialog --title "Installing, please wait" --progressbar "Starting..." 12`
 qdbus-qt5 $dbusRef showCancelButton false
 
 qdbus-qt5 $dbusRef Set "" value 1
@@ -95,7 +95,7 @@ qdbus-qt5 $dbusRef close
 exit
 
 #opens KDialog progress window
-dbusRefTwo=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 2
+dbusRefTwo=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 2`
 qdbus-qt5 $dbusRefTwo showCancelButton false
 
 qdbus-qt5 $dbusRefTwo Set "" value 1
