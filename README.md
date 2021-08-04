@@ -42,6 +42,7 @@ Alternatively you can run the gui (KDialog) version:
 
 ```
 chmod +x Install-GUI.sh
+chmod +x Root-Commands.sh
 ./Install-GUI.sh
 ```
 
