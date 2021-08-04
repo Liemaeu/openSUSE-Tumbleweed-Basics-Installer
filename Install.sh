@@ -46,6 +46,7 @@ sudo systemctl enable --now snapd.apparmor
 
 #installs flatpak
 sudo zypper --non-interactive install -y flatpak
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 #installs updates
 sudo zypper --non-interactive refresh
@@ -60,7 +61,9 @@ if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop;" "$HOME/.c
 fi
 
 #sets up flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak update
+
+#disables singleclick
+kwriteconfig5 --group KDE --key SingleClick --type bool false
 
 exit
