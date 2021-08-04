@@ -52,10 +52,10 @@ sudo zypper --non-interactive refresh
 sudo zypper --non-interactive dist-upgrade --allow-vendor-change
 
 #sets YaST Software as default application for .rpm
-if ! -f "$HOME/.config/mimeapps.list" ; then
+if ! [ -f "$HOME/.config/mimeapps.list" ]; then
   echo "[Default Applications]" > $HOME/.config/mimeapps.list
 fi
-if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop" "$HOME/.config/mimeapps.list" ; then
+if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop;" "$HOME/.config/mimeapps.list" ; then
   sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
 fi
 
