@@ -22,6 +22,7 @@ This script installs and sets up everything a normal user needs. It is designed 
 - Kwallet autounlock enabled
 - Gnome Keyring autounlock enabled
 - boot delay disabled
+- single click disabled
 - swappiness to 10
 
 ## Fixes
