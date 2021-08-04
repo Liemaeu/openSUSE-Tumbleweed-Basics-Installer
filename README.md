@@ -1,7 +1,5 @@
 # openSUSE-Tumbleweed-Basics-Installer
 
-*Work in progress. A gui will be added in the future.*
-
 This script installs and sets up everything a normal user needs. It is designed for **openSUSE Tumbleweed** with the **KDE Plasma** desktop environement on a regular **64 bit** pc (x86_64 architecture).
 
 # Features
