@@ -15,7 +15,7 @@ This script installs and sets up everything a normal user needs. It is designed 
 - Gnome Keyring (with Seahorse gui)
 - Flatpak
 - Snap
-- build essentials
+- build tools
 
 ## Sets
 
