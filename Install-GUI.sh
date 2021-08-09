@@ -10,7 +10,7 @@ fi
 kdesu ./Root-Commands.sh
 
 #opens KDialog progress window
-dbusRef=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 3`
+dbusRef=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 2`
 qdbus-qt5 $dbusRef showCancelButton false
 
 qdbus-qt5 $dbusRef Set "" value 1
@@ -27,12 +27,6 @@ qdbus-qt5 $dbusRef Set "" value 2
 qdbus-qt5 $dbusRef setLabelText "Setting up Flatpak..."
 #sets up flatpak
 flatpak update
-
-
-qdbus-qt5 $dbusRef Set "" value 3
-qdbus-qt5 $dbusRef setLabelText "Disabling Single Click..."
-#disables singleclick
-kwriteconfig5 --group KDE --key SingleClick --type bool false
 
 #closes KDialog progress window
 qdbus-qt5 $dbusRef close
