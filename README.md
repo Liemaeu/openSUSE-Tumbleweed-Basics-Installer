@@ -40,7 +40,7 @@ chmod +x Install.sh
 ./Install.sh
 ```
 
-Alternatively you can run the gui (KDialog) version:
+Or you can run the gui (KDialog) version:
 
 ```
 chmod +x Install-GUI.sh
