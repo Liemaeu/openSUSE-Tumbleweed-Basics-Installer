@@ -33,7 +33,7 @@ This script installs and sets up everything a normal user needs. It is designed 
 
 Download [this](https://github.com/Liemaeu/openSUSE-Tumbleweed-Basics-Installer/releases/download/1.1/openSUSE.Tumbleweed.Basics.Installer.1.1.tar.gz), extract it, open the extracted folder **openSUSE Tumbleweed Basics Installer 1.1**, click on **Basics Installer.sh** and **Execute**.
 
-alternatively you can download the source code, extract it and open a terminal (e.g. Konsole) in the folder with the Install.sh script:
+Alternatively you can download the source code, extract it and open a terminal (e.g. Konsole) in the folder with the Install.sh script:
 
 ```
 chmod +x Install.sh
