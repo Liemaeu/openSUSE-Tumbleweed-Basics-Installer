@@ -63,7 +63,4 @@ fi
 #sets up flatpak
 flatpak update
 
-#disables singleclick
-kwriteconfig5 --group KDE --key SingleClick --type bool false
-
 exit
