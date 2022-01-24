@@ -14,12 +14,22 @@ sudo zypper --non-interactive install -y fetchmsttfonts
 #installs build essentials
 sudo zypper --non-interactive install -y patterns-devel-base-devel_basis
 
+#installs cups
+sudo zypper --non-interactive install -y cups
+sudo groupadd lpadmin
+sudo usermod -a -G lpadmin $USER
+sudo sed -i "s/^SystemGroup root.*/SystemGroup lpadmin/" /etc/cups/cups-files.conf
+
 #removes discover
 sudo zypper --non-interactive remove -y discover
 
 #disables boot timeout
 sudo sed -i "s/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/" /etc/default/grub
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+#sets firewall zone to trusted
+sudo sed -i "s/^DefaultZone=public.*/DefaultZone=trusted/" /etc/firewalld/firewalld.conf
+sudo systemctl restart firewalld
 
 #decreases swappiness
 if ! grep -Fxq "vm.swappiness=10" "/etc/sysctl.conf" ; then
