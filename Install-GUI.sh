@@ -22,7 +22,7 @@ fi
 if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop;" "$HOME/.config/mimeapps.list" ; then
   sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
 fi
-<
+
 qdbus-qt5 $dbusRef Set "" value 2
 qdbus-qt5 $dbusRef setLabelText "Setting up Flatpak..."
 #sets up flatpak
