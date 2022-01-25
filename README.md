@@ -16,12 +16,15 @@ This script installs and sets up everything a normal user needs. It is designed 
 - Flatpak
 - Snap
 - build tools
+- CUPS
 
 ## Sets
 
 - Kwallet autounlock enabled
 - Gnome Keyring autounlock enabled
 - boot delay disabled
+- hides acpi errors
+- firewall zone to trusted
 - swappiness to 10
 
 ## Fixes
