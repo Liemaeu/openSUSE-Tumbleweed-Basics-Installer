@@ -33,7 +33,7 @@ sudo systemctl restart firewalld
 
 #hides acpi errors
 if ! grep -Fxq "loglevel=3" "/etc/default/grub" ; then
-  sudo sed -i s/quiet/& loglevel=3/’ /etc/default/grub
+  sudo sed -i 's/quiet/& loglevel=3/' /etc/default/grub
   sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 fi
 
