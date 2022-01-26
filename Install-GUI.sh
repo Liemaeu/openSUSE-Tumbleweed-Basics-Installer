@@ -32,7 +32,7 @@ flatpak update
 qdbus-qt5 $dbusRef close
 
 #shows finished message
-kdialog --msgbox "Finished!"
+kdialog --msgbox "Finished! Please reboot."
 
 #closes the script
 exit
