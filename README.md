@@ -34,7 +34,9 @@ This script installs and sets up everything a normal user needs. It is designed 
 
 # Run this script
 
-Download [this](https://github.com/Liemaeu/openSUSE-Tumbleweed-Basics-Installer/releases/download/1.2/openSUSE.Tumbleweed.Basics.Installer.1.2.tar.gz), extract it, open the extracted folder **openSUSE Tumbleweed Basics Installer 1.2**, click on **Basics Installer.sh** and **Execute**.
+Download [this](https://github.com/Liemaeu/openSUSE-Tumbleweed-Basics-Installer/releases/download/1.3/openSUSE.Tumbleweed.Basics.Installer.1.3.tar.gz), extract it, open the extracted folder **openSUSE Tumbleweed Basics Installer 1.3**, click on **Basics Installer.sh** and **Execute**.
+
+
 
 Alternatively you can download the source code, extract it and open a terminal (e.g. Konsole) in the folder with the Install.sh script:
 
@@ -51,7 +53,6 @@ chmod +x Root-Commands.sh
 ./Install-GUI.sh
 ```
 
-# ToDo after running this script
+# To Do after running this script
 
 - Reboot your pc
-- It's recommended to remove the Discover icon from the control panel, since it has no use anymore
