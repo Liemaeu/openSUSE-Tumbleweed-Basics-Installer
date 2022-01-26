@@ -76,6 +76,12 @@ if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop;" "$HOME/.c
   sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
 fi
 
+#removes Discover icon from the taskbar
+if ! grep -Fxq "[Containments][2][Applets][5][Configuration][General]" "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ; then
+  echo "[Containments][2][Applets][5][Configuration][General]" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "launchers=applications:systemsettings.desktop,preferred://filemanager,preferred://browser" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+fi
+
 #sets up flatpak
 flatpak update
 
