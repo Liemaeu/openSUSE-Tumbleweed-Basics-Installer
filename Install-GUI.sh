@@ -10,7 +10,7 @@ fi
 kdesu ./Root-Commands.sh
 
 #opens KDialog progress window
-dbusRef=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 2`
+dbusRef=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 3`
 qdbus-qt5 $dbusRef showCancelButton false
 
 qdbus-qt5 $dbusRef Set "" value 1
@@ -24,6 +24,15 @@ if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop;" "$HOME/.c
 fi
 
 qdbus-qt5 $dbusRef Set "" value 2
+qdbus-qt5 $dbusRef setLabelText "Removing Discover icon from taskbar..."
+#removes Discover icon from the taskbar
+if ! grep -Fxq "[Containments][2][Applets][5][Configuration][General]" "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ; then
+  echo "" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "[Containments][2][Applets][5][Configuration][General]" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "launchers=applications:systemsettings.desktop,preferred://filemanager,preferred://browser" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+fi
+
+qdbus-qt5 $dbusRef Set "" value 3
 qdbus-qt5 $dbusRef setLabelText "Setting up Flatpak..."
 #sets up flatpak
 flatpak update
