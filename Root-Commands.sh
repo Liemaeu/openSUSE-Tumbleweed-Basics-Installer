@@ -55,7 +55,7 @@ qdbus-qt5 $dbusRef Set "" value 9
 qdbus-qt5 $dbusRef setLabelText "Disabling Boot Messages..."
 #hides acpi errors
 if ! grep -Fxq "loglevel=3" "/etc/default/grub" ; then
-  sed -i s/quiet/& loglevel=3/’ /etc/default/grub
+  sed -i 's/quiet/& loglevel=3/' /etc/default/grub
   grub2-mkconfig -o /boot/grub2/grub.cfg
 fi
 
