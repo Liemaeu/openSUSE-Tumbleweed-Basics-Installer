@@ -17,7 +17,7 @@ qdbus-qt5 $dbusRef setLabelText "Installing Media Codecs..."
 zypper --non-interactive install -y --from packman ffmpeg gstreamer-plugins-{good,bad,ugly,libav} libavcodec-full vlc-codecs
 
 qdbus-qt5 $dbusRef Set "" value 3
-qdbus-qt5 $dbusRef setLabelText "Installing Microsoft Fonts..."
+qdbus-qt5 $dbusRef setLabelText "Installing Microsoft Fonts (takes some time)..."
 #installs Microsoft fonts
 zypper --non-interactive install -y fetchmsttfonts
 
