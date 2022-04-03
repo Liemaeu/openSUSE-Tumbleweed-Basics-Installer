@@ -35,9 +35,9 @@ usermod -a -G lpadmin $USER
 sed -i "s/^SystemGroup root.*/SystemGroup lpadmin/" /etc/cups/cups-files.conf
 
 qdbus-qt5 $dbusRef Set "" value 6
-qdbus-qt5 $dbusRef setLabelText "Removing Discover..."
-#removes discover
-zypper --non-interactive remove -y discover
+qdbus-qt5 $dbusRef setLabelText "Installing 7-Zip..."
+#installs 7zip
+zypper --non-interactive install -y 7zip
 
 qdbus-qt5 $dbusRef Set "" value 7
 qdbus-qt5 $dbusRef setLabelText "Disabeling Boot Delay..."
