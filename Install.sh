@@ -72,7 +72,7 @@ sudo zypper --non-interactive dist-upgrade --allow-vendor-change
 if ! [ -f "$HOME/.config/mimeapps.list" ]; then
   echo "[Default Applications]" > $HOME/.config/mimeapps.list
 fi
-if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop;" "$HOME/.config/mimeapps.list" ; then
+if ! grep -Fxq "application/x-rpm" "$HOME/.config/mimeapps.list" ; then
   sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
 fi
 
@@ -92,9 +92,12 @@ if ! grep -Fxq "[Containments][9][Applets][10][Configuration][General]" "$HOME/.
 fi
 
 #disables allow blocking of compositing
-if ! grep -Fxq "WindowsBlockCompositing=false" "$HOME/.config/kwinrc" ; then
+if ! grep -Fxq "WindowsBlockCompositing" "$HOME/.config/kwinrc" ; then
   sed -i "/Compositing/a WindowsBlockCompositing=false" $HOME/.config/kwinrc
 fi
+
+#allows vendor change
+sudo sed -i 's/.*solver.allowVendorChange.*/solver.allowVendorChange = true/' /etc/zypp/zypp.conf
 
 #sets up flatpak
 flatpak update
