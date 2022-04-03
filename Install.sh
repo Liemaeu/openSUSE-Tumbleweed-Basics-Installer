@@ -20,8 +20,8 @@ sudo groupadd lpadmin
 sudo usermod -a -G lpadmin $USER
 sudo sed -i "s/^SystemGroup root.*/SystemGroup lpadmin/" /etc/cups/cups-files.conf
 
-#removes discover
-sudo zypper --non-interactive remove -y discover
+#installs 7zip
+sudo zypper --non-interactive install -y 7zip
 
 #disables boot timeout
 sudo sed -i "s/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/" /etc/default/grub
