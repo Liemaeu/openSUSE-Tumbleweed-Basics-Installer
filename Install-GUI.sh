@@ -19,7 +19,7 @@ qdbus-qt5 $dbusRef setLabelText "Making YaST Software default for .rpm..."
 if ! [ -f "$HOME/.config/mimeapps.list" ]; then
   echo "[Default Applications]" > $HOME/.config/mimeapps.list
 fi
-if ! grep -Fxq "application/x-rpm=org.opensuse.yast.Packager.desktop;" "$HOME/.config/mimeapps.list" ; then
+if ! grep -Fxq "application/x-rpm" "$HOME/.config/mimeapps.list" ; then
   sed -i "/Default Applications/a application/x-rpm=org.opensuse.yast.Packager.desktop;" $HOME/.config/mimeapps.list
 fi
 
@@ -45,7 +45,7 @@ fi
 qdbus-qt5 $dbusRef Set "" value 4
 qdbus-qt5 $dbusRef setLabelText "Disabling allow blocking of compositing..."
 #disables allow blocking of compositing
-if ! grep -Fxq "WindowsBlockCompositing=false" "$HOME/.config/kwinrc" ; then
+if ! grep -Fxq "WindowsBlockCompositing" "$HOME/.config/kwinrc" ; then
   sed -i "/Compositing/a WindowsBlockCompositing=false" $HOME/.config/kwinrc
 fi
 
