@@ -53,11 +53,14 @@ systemctl restart firewalld
 
 qdbus-qt5 $dbusRef Set "" value 9
 qdbus-qt5 $dbusRef setLabelText "Disabling Boot Messages..."
-#hides acpi errors
-if ! grep -Fxq "loglevel=3" "/etc/default/grub" ; then
-  sed -i 's/quiet/& loglevel=3/' /etc/default/grub
-  grub2-mkconfig -o /boot/grub2/grub.cfg
+#hides acpi errors and white line
+if ! grep -Fxq "loglevel" "/etc/default/grub" ; then
+  sudo sed -i 's/quiet/& loglevel=3/' /etc/default/grub
 fi
+if ! grep -Fxq "vt.global_cursor_default" "/etc/default/grub" ; then
+  sudo sed -i 's/loglevel=3/& vt.global_cursor_default=0/' /etc/default/grub
+fi
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 qdbus-qt5 $dbusRef Set "" value 10
 qdbus-qt5 $dbusRef setLabelText "Decreasing Swappiness..."
