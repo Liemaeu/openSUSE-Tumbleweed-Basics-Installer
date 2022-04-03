@@ -62,7 +62,7 @@ fi
 qdbus-qt5 $dbusRef Set "" value 10
 qdbus-qt5 $dbusRef setLabelText "Decreasing Swappiness..."
 #decreases swappiness
-if ! grep -Fxq "vm.swappiness=10" "/etc/sysctl.conf" ; then
+if ! grep -Fxq "vm.swappiness" "/etc/sysctl.conf" ; then
   "vm.swappiness=10" >> /etc/sysctl.conf
 fi
 
