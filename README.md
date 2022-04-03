@@ -1,8 +1,10 @@
 # openSUSE-Tumbleweed-Basics-Installer
 
-Download [this](https://github.com/Liemaeu/openSUSE-Tumbleweed-Basics-Installer/releases/download/1.4/openSUSE.Tumbleweed.Basics.Installer.1.4.tar.gz), extract it, open the extracted folder **openSUSE Tumbleweed Basics Installer 1.4**, click on **Install.sh** and **Execute**.
-
 This script installs and sets up everything a normal user needs. It is designed for **openSUSE Tumbleweed** with the **KDE Plasma** desktop environement on a regular **64 bit** pc (x86_64 architecture).
+
+# Download
+
+Download [this](https://github.com/Liemaeu/openSUSE-Tumbleweed-Basics-Installer/releases/download/1.4/openSUSE.Tumbleweed.Basics.Installer.1.4.tar.gz), extract it, open the extracted folder **openSUSE Tumbleweed Basics Installer 1.4**, click on **Install.sh** and **Execute**.
 
 # Features
 
