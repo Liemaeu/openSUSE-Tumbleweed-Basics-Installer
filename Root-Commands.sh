@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #opens KDialog progress window
-dbusRef=`kdialog --title "Installing, please wait" --progressbar "Starting..." 15`
+dbusRef=`kdialog --title "Installing, please wait" --progressbar "Starting..." 16`
 qdbus-qt5 $dbusRef showCancelButton false
 
 qdbus-qt5 $dbusRef Set "" value 1
@@ -97,6 +97,11 @@ zypper --non-interactive install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 qdbus-qt5 $dbusRef Set "" value 15
+qdbus-qt5 $dbusRef setLabelText "Allowing vendor change..."
+#allows vendor change
+sudo sed -i 's/.*solver.allowVendorChange.*/solver.allowVendorChange = true/' /etc/zypp/zypp.conf
+
+qdbus-qt5 $dbusRef Set "" value 16
 qdbus-qt5 $dbusRef setLabelText "Updating System..."
 #installs updates
 zypper --non-interactive refresh
