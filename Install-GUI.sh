@@ -10,7 +10,7 @@ fi
 kdesu ./Root-Commands.sh
 
 #opens KDialog progress window
-dbusRef=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 4`
+dbusRef=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 5`
 qdbus-qt5 $dbusRef showCancelButton false
 
 qdbus-qt5 $dbusRef Set "" value 1
@@ -34,6 +34,7 @@ fi
 
 qdbus-qt5 $dbusRef Set "" value 3
 qdbus-qt5 $dbusRef setLabelText "Setting search for updates to weekly..."
+#sets search for updates to weekly
 if ! grep -Fxq "[Containments][9][Applets][10][Configuration][General]" "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ; then
   echo "" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
   echo "[Containments][9][Applets][10][Configuration][General]" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
@@ -42,6 +43,13 @@ if ! grep -Fxq "[Containments][9][Applets][10][Configuration][General]" "$HOME/.
 fi
 
 qdbus-qt5 $dbusRef Set "" value 4
+qdbus-qt5 $dbusRef setLabelText "Disabling allow blocking of compositing..."
+#disables allow blocking of compositing
+if ! grep -Fxq "WindowsBlockCompositing=false" "$HOME/.config/kwinrc" ; then
+  sed -i "/Compositing/a WindowsBlockCompositing=false" $HOME/.config/kwinrc
+fi
+
+qdbus-qt5 $dbusRef Set "" value 5
 qdbus-qt5 $dbusRef setLabelText "Setting up Flatpak..."
 #sets up flatpak
 flatpak update
