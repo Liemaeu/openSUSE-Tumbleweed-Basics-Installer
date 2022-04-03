@@ -31,11 +31,14 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 sudo sed -i "s/^DefaultZone=public.*/DefaultZone=trusted/" /etc/firewalld/firewalld.conf
 sudo systemctl restart firewalld
 
-#hides acpi errors
-if ! grep -Fxq "loglevel=3" "/etc/default/grub" ; then
+#hides acpi errors and white line
+if ! grep -Fxq "loglevel" "/etc/default/grub" ; then
   sudo sed -i 's/quiet/& loglevel=3/' /etc/default/grub
-  sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 fi
+if ! grep -Fxq "vt.global_cursor_default" "/etc/default/grub" ; then
+  sudo sed -i 's/loglevel=3/& vt.global_cursor_default=0/' /etc/default/grub
+fi
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 #decreases swappiness
 if ! grep -Fxq "vm.swappiness" "/etc/sysctl.conf" ; then
