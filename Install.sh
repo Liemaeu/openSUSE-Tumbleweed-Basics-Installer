@@ -83,6 +83,14 @@ if ! grep -Fxq "[Containments][2][Applets][5][Configuration][General]" "$HOME/.c
   echo "launchers=applications:systemsettings.desktop,preferred://filemanager,preferred://browser" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
 fi
 
+#sets search for updates to weekly
+if ! grep -Fxq "[Containments][9][Applets][10][Configuration][General]" "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ; then
+  echo "" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "[Containments][9][Applets][10][Configuration][General]" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "daily=false" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "weekly=true" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+fi
+
 #sets up flatpak
 flatpak update
 
