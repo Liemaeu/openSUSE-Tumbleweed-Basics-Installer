@@ -10,7 +10,7 @@ fi
 kdesu ./Root-Commands.sh
 
 #opens KDialog progress window
-dbusRef=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 3`
+dbusRef=`kdialog --title "Final steps, please wait" --progressbar "Starting..." 4`
 qdbus-qt5 $dbusRef showCancelButton false
 
 qdbus-qt5 $dbusRef Set "" value 1
@@ -33,6 +33,15 @@ if ! grep -Fxq "[Containments][2][Applets][5][Configuration][General]" "$HOME/.c
 fi
 
 qdbus-qt5 $dbusRef Set "" value 3
+qdbus-qt5 $dbusRef setLabelText "Setting search for updates to weekly..."
+if ! grep -Fxq "[Containments][9][Applets][10][Configuration][General]" "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ; then
+  echo "" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "[Containments][9][Applets][10][Configuration][General]" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "daily=false" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "weekly=true" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+fi
+
+qdbus-qt5 $dbusRef Set "" value 4
 qdbus-qt5 $dbusRef setLabelText "Setting up Flatpak..."
 #sets up flatpak
 flatpak update
