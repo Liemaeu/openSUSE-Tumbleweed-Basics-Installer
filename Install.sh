@@ -91,6 +91,11 @@ if ! grep -Fxq "[Containments][9][Applets][10][Configuration][General]" "$HOME/.
   echo "weekly=true" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
 fi
 
+#disables allow blocking of compositing
+if ! grep -Fxq "WindowsBlockCompositing=false" "$HOME/.config/kwinrc" ; then
+  sed -i "/Compositing/a WindowsBlockCompositing=false" $HOME/.config/kwinrc
+fi
+
 #sets up flatpak
 flatpak update
 
