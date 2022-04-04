@@ -42,7 +42,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 #decreases swappiness
 if ! grep -Fxq "vm.swappiness" "/etc/sysctl.conf" ; then
-  sudo sh -c '"vm.swappiness=10" >> /etc/sysctl.conf'
+  sudo echo "vm.swappiness=10" >> /etc/sysctl.conf
 fi
 
 #auto unlocks KWallet
