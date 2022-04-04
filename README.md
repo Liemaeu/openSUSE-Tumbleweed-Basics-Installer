@@ -4,7 +4,7 @@ This script installs and sets up everything a normal user needs. It is designed 
 
 # Download
 
-Download [this](https://github.com/Liemaeu/openSUSE-Tumbleweed-Basics-Installer/releases/download/1.5/openSUSE.Tumbleweed.Basics.Installer.1.5.tar.gz), extract it, open the extracted folder **openSUSE Tumbleweed Basics Installer 1.4**, click on **Install.sh** and **Execute**.
+Download [this](https://github.com/Liemaeu/openSUSE-Tumbleweed-Basics-Installer/releases/download/1.5/openSUSE.Tumbleweed.Basics.Installer.1.5.tar.gz), extract it, open the extracted folder **openSUSE Tumbleweed Basics Installer 1.5**, click on **Install.sh** and **Execute**.
 
 ---
 
