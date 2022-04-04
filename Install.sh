@@ -87,9 +87,9 @@ if ! grep -Fxq "[Containments][2][Applets][5][Configuration][General]" "$HOME/.c
 fi
 
 #sets search for updates to weekly
-if ! grep -Fxq "[Containments][9][Applets][10][Configuration][General]" "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ; then
+if ! grep -Fxq "[Containments][8][Applets][9][Configuration][General]" "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ; then
   echo "" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
-  echo "[Containments][9][Applets][10][Configuration][General]" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+  echo "[Containments][8][Applets][9][Configuration][General]" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
   echo "daily=false" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
   echo "weekly=true" >> $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
 fi
