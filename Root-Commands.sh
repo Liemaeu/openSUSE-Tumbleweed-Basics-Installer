@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #opens KDialog progress window
-dbusRef=`kdialog --title "Installing, please wait" --progressbar "Starting..." 16`
+dbusRef=`kdialog --title "Installing, please wait" --progressbar "Starting..." 17`
 qdbus-qt5 $dbusRef showCancelButton false
 
 qdbus-qt5 $dbusRef Set "" value 1
@@ -105,6 +105,13 @@ qdbus-qt5 $dbusRef setLabelText "Allowing vendor change..."
 sudo sed -i 's/.*solver.allowVendorChange.*/solver.allowVendorChange = true/' /etc/zypp/zypp.conf
 
 qdbus-qt5 $dbusRef Set "" value 16
+qdbus-qt5 $dbusRef setLabelText "Updating System..."
+#installs updates
+#removes and locks YaST Online Update module
+zypper --non-interactive remove -y yast2-online-update yast2-online-update-frontend
+zypper addlock yast2-online-update yast2-online-update-frontend
+
+qdbus-qt5 $dbusRef Set "" value 17
 qdbus-qt5 $dbusRef setLabelText "Updating System..."
 #installs updates
 zypper --non-interactive refresh
