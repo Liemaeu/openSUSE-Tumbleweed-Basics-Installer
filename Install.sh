@@ -67,6 +67,10 @@ sudo systemctl enable --now snapd.apparmor
 sudo zypper --non-interactive install -y flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+#removes and locks YaST Online Update module
+sudo zypper --non-interactive remove -y yast2-online-update yast2-online-update-frontend
+sudo zypper addlock yast2-online-update yast2-online-update-frontend
+
 #installs updates
 sudo zypper --non-interactive refresh
 sudo zypper --non-interactive dist-upgrade --allow-vendor-change
